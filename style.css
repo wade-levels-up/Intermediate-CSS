@@ -1,0 +1,125 @@
+:root {
+    --brand-color-grey: white;
+    --brand-color-blue: yellow;
+    --brand-color-ultramarine: orange;
+    color: black;
+    --page-height: 100vh;
+    --header-height: calc(var(--page-height) - 90%);
+    --footer-height: 50px;
+    --main-height: calc(var(--page-height) - var(--header-height) - var(--footer-height));
+    --rand: 0;
+    --rand2: 18;
+    --rand-deg: calc(var(--rand) * 1deg);
+    --rand-size: calc(var(--rand2) * 1px);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --brand-color-grey: #666;
+        --brand-color-blue: #2468ff;
+        --brand-color-ultramarine: #1111cc;
+        color: aliceblue;
+    }
+}
+
+* {
+    margin: 0;
+    font-size: 18px;
+}
+
+body {
+    --width-100: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    background-color: var(--brand-color-grey);
+    height: var(--header-height);
+    width: var(--width-100);
+}
+
+main {
+    background-color: var(--brand-color-ultramarine);
+    width: var(--width-100);
+    height: var(--main-height);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer {
+    background-color: var(--brand-color-blue);
+    width: var(--width-100);
+    height: var(--footer-height);
+}
+
+[class='heading']::first-letter {
+    font-size: 3rem;
+}
+
+[class=heading] {
+    font-size: 2rem;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: 3s ease-out; 
+}
+
+header:hover {
+    transition: 3s ease-in;
+    background-color: red;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 50px;
+}
+
+main > .container {
+    display: flex;
+    border: 3px inset lime;
+    width: 20%;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+
+.container:nth-child(2) {
+    width: 50ch;
+    text-wrap: wrap;
+    hyphens: auto;
+    transition: 5s;
+}
+
+.container:nth-child(2):hover {
+   transition: 5s;
+   rotate: var(--rand-deg);
+   background-color: black;
+}
+
+.chaos {
+    width: 1000px;
+    background-color: #666;
+    text-wrap: wrap;
+}
+
+.chaos p {
+    transition: 5s;
+    rotate: var(--rand-deg);
+    font-size: var(--rand-size);
+    display: inline-block;
+}
